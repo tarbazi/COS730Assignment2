@@ -1,4 +1,5 @@
 package com.example.netscapenavigatorbackend.API.Model;
+
 import java.util.ArrayList;
 
 public class User {
@@ -18,9 +19,21 @@ public class User {
         this.userName = userName;
     } //userName set method
 
+    public String getUserName(){
+        return userName;
+    }
+
     private void setPassword(String password) {
         this.password = password;
     } //password set method
+
+    public String getPassword(){
+        return password;
+    }
+
+    public String getPhoneNumber(){
+        return phoneNumber;
+    }
 
     public String changePassword(String oldPassword, String newPassword){
         if (oldPassword.equals(password)){
@@ -28,7 +41,7 @@ public class User {
             return "ACK";
         }
         else{
-            return "{ Response : NAK}";
+            return "NAK";
         }
     } //set password upon user password change
 
