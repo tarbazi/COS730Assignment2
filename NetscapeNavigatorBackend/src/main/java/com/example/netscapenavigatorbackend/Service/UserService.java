@@ -36,6 +36,38 @@ public class UserService {
             }
         }
         
-        return Optional.empty();
+        return Optional.of(new User("None","None","None"));
+    }
+
+    public Optional<Response> addLink(String userName, String visitedLink){
+        for (User user: users){
+            if (user.getUserName().equals(userName)){
+                String response = user.addLink(visitedLink);
+                if (response.equals("ACK")){
+                    return Optional.of(new Response("ACK"));
+                }
+                else{
+                    return Optional.of(new Response("NAK"));
+                }
+            }
+        }
+        
+        return Optional.of(new Response("NAK"));
+    }
+
+    public Optional<Response> deleteLink(String userName, int pos){
+        for (User user: users){
+            if (user.getUserName().equals(userName)){
+                String response = user.deleteLink(pos);
+                if (response.equals("ACK")){
+                    return Optional.of(new Response("ACK"));
+                }
+                else{
+                    return Optional.of(new Response("NAK"));
+                }
+            }
+        }
+        
+        return Optional.of(new Response("NAK"));
     }
 }

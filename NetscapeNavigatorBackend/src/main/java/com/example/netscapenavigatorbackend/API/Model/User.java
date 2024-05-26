@@ -35,6 +35,10 @@ public class User {
         return phoneNumber;
     }
 
+    public ArrayList<String> getVisitedLinks(){
+        return visitedLinks;
+    }
+
     public String changePassword(String oldPassword, String newPassword){
         if (oldPassword.equals(password)){
             setPassword(newPassword);
@@ -51,11 +55,25 @@ public class User {
         return newPassword;
     } //reset user password
 
-    public void addLink(String visitedLink){
-        visitedLinks.add(visitedLink);
+    public String addLink(String visitedLink){
+        try{
+            visitedLinks.add(visitedLink);
+            return "ACK";
+        }
+
+        catch (Exception e){
+            return "NAK";
+        }
     } //add visited link to the users visited links list
 
-    public void deleteLink(int pos){
-        visitedLinks.remove(pos); 
+    public String deleteLink(int pos){
+        try{
+            visitedLinks.remove(pos); 
+            return "ACK";
+        }
+
+        catch (Exception e){
+            return "NAK";
+        }
     } //deletes history element in position pos
 }

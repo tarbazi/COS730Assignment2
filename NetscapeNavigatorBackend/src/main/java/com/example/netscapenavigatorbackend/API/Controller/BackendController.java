@@ -3,7 +3,6 @@ package com.example.netscapenavigatorbackend.API.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.example.netscapenavigatorbackend.API.Model.User;
 import com.example.netscapenavigatorbackend.API.Model.Response;
@@ -27,5 +26,15 @@ public class BackendController {
     @GetMapping("/getUser")
     public User getUser(@RequestParam String userName, @RequestParam String password){
         return userService.getUser(userName, password).get();
+    }
+
+    @GetMapping("/addLink")
+    public Response addLink(@RequestParam String userName, @RequestParam String visitedLink){
+        return userService.addLink(userName, visitedLink).get();
+    }
+
+    @GetMapping("/deleteLink")
+    public Response deleteLink(@RequestParam String userName, @RequestParam int pos){
+        return userService.deleteLink(userName, pos).get();
     }
 }
