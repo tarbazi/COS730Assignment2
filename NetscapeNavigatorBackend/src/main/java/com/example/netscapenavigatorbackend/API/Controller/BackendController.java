@@ -23,9 +23,9 @@ public class BackendController {
         return userService.createUser(userName, password, phoneNumber).get();
     }
 
-    @GetMapping("/loginr")
+    @GetMapping("/login")
     public Response login(@RequestParam String userName, @RequestParam String password){
-        return userService.login(userName, password).get;
+        return userService.login(userName, password).get();
     }
 
     @GetMapping("/addLink")
