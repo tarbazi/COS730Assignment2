@@ -23,10 +23,10 @@ public class BackendController {
         return userService.createUser(userName, password, phoneNumber).get();
     }
 
-    /*@GetMapping("/getUser")
-    public User getUser(@RequestParam String userName){
-        return userService.getUser(userName).get();
-    }*/
+    @GetMapping("/loginr")
+    public Response login(@RequestParam String userName, @RequestParam String password){
+        return userService.login(userName, password).get;
+    }
 
     @GetMapping("/addLink")
     public Response addLink(@RequestParam String userName, @RequestParam String visitedLink){

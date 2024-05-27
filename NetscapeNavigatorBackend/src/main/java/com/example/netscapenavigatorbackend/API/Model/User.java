@@ -45,6 +45,15 @@ public class User {
         }
     } //set password upon user password change
 
+    public String checkPassword(String password){
+        if (this.password.equals(password)){
+            return "ACK";
+        }
+        else{
+            return "NAK";
+        }
+    }
+
     public String passwordReset(){
         String newPassword = Integer.toString((int)Math.random()*10000);
         setPassword(newPassword);

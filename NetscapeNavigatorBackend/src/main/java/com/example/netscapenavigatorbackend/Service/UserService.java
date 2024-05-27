@@ -29,14 +29,20 @@ public class UserService {
         return Optional.of(new Response("ACK"));
     }
 
-    public Optional<User> getUser(String userName){
+    public Optional<Response> login(String userName, String password){
         for (User user: users){
             if (user.getUserName().equals(userName)){
-                return Optional.of(user);
+                String response = user.checkPassword(password);
+                if (response.equals("ACK")){
+                    return Optional.of(new Response("ACK"));
+                }
+                else{
+                    return Optional.of(new Response("NAK"));
+                }
             }
         }
         
-        return Optional.of(new User("None","None","None"));
+        return Optional.of(new Response("NAK"));
     }
 
     public Optional<Response> addLink(String userName, String visitedLink){
