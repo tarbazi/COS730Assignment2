@@ -23,10 +23,10 @@ public class BackendController {
         return userService.createUser(userName, password, phoneNumber).get();
     }
 
-    @GetMapping("/getUser")
-    public User getUser(@RequestParam String userName, @RequestParam String password){
-        return userService.getUser(userName, password).get();
-    }
+    /*@GetMapping("/getUser")
+    public User getUser(@RequestParam String userName){
+        return userService.getUser(userName).get();
+    }*/
 
     @GetMapping("/addLink")
     public Response addLink(@RequestParam String userName, @RequestParam String visitedLink){
@@ -36,5 +36,10 @@ public class BackendController {
     @GetMapping("/deleteLink")
     public Response deleteLink(@RequestParam String userName, @RequestParam int pos){
         return userService.deleteLink(userName, pos).get();
+    }
+
+    @GetMapping("/getInsights")
+    public User getInsights(@RequestParam String userName){
+        return userService.getInsights(userName).get();
     }
 }

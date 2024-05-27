@@ -29,9 +29,9 @@ public class UserService {
         return Optional.of(new Response("ACK"));
     }
 
-    public Optional<User> getUser(String userName, String password){
+    public Optional<User> getUser(String userName){
         for (User user: users){
-            if (user.getUserName().equals(userName) & user.getPassword().equals(password)){
+            if (user.getUserName().equals(userName)){
                 return Optional.of(user);
             }
         }
@@ -69,5 +69,15 @@ public class UserService {
         }
         
         return Optional.of(new Response("NAK"));
+    }
+
+    public Optional<User> getInsights(String userName){
+        for (User user: users){
+            if (user.getUserName().equals(userName)){
+                return Optional.of(user);
+            }
+        }
+        
+        return Optional.of(new User("None","None","None"));
     }
 }

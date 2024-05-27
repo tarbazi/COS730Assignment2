@@ -27,10 +27,6 @@ public class User {
         this.password = password;
     } //password set method
 
-    public String getPassword(){
-        return password;
-    }
-
     public String getPhoneNumber(){
         return phoneNumber;
     }

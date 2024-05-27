@@ -9,5 +9,5 @@ public class Response {
 
     public String getResponse(){
         return response;
-    }
+    } //class to create acknowlegement objects
 }
